@@ -4,6 +4,13 @@ const Canvas = () => {
   const [name, setName] = useState('asdasd');
 
   useEffect(() => {
+
+    let bgImg = new Image();
+    bgImg.src = '/images/1.jpg';
+    bgImg.onload = () => {
+        gCtx.drawImage(bgImg, 0, 0, gElCanvas.width, gElCanvas.height);
+    }
+
     var canvas = document.getElementById('myCanvas');
     var ctx = canvas.getContext('2d');
     ctx.reset();
