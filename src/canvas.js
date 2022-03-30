@@ -4,16 +4,15 @@ const Canvas = () => {
   const [name, setName] = useState('asdasd');
 
   useEffect(() => {
-
-    let bgImg = new Image();
-    bgImg.src = '/images/1.jpg';
-    bgImg.onload = () => {
-        gCtx.drawImage(bgImg, 0, 0, gElCanvas.width, gElCanvas.height);
-    }
-
     var canvas = document.getElementById('myCanvas');
     var ctx = canvas.getContext('2d');
     ctx.reset();
+
+    let bgImg = new Image();
+    bgImg.src = '/bg.png';
+    bgImg.onload = () => {
+      ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+    };
     ctx.font = '30px Arial';
     ctx.fillText(name, 10, 250);
   }, [name]);
